@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крипто Стратегия Easy Peasy Systems</title>
+    <title>Easy Peasy Systems - Крипто Стратегия</title>
     <style>
         * {
             margin: 0;
@@ -12,29 +12,63 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1A1A1A;
+            background: #FFFFFF;
         }
 
-        /* Color scheme: white and orange */
         :root {
             --primary-orange: #FF6B35;
             --light-orange: #FF8555;
-            --dark-bg: #F8F8F8;
             --white: #FFFFFF;
             --text-dark: #1A1A1A;
             --text-light: #666;
+            --light-bg: #F5F5F5;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Header */
         header {
             background: var(--white);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .header-container {
@@ -47,16 +81,19 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary-orange);
+            letter-spacing: -0.5px;
         }
 
         nav a {
-            margin-left: 30px;
+            margin-left: 40px;
             text-decoration: none;
             color: var(--text-dark);
             transition: color 0.3s;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         nav a:hover {
@@ -65,109 +102,192 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--white) 0%, var(--dark-bg) 100%);
-            padding: 100px 20px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            padding: 120px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s infinite;
         }
 
         .hero-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
+            font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 20px;
-            line-height: 1.2;
+            line-height: 1.15;
+            letter-spacing: -1px;
         }
 
         .hero h1 .highlight {
             color: var(--primary-orange);
+            display: inline-block;
+            position: relative;
         }
 
-        .hero p {
-            font-size: 18px;
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-orange);
+            opacity: 0.3;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
             color: var(--text-light);
-            margin-bottom: 30px;
-            max-width: 600px;
+            margin-bottom: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
         }
 
         .cta-button {
             display: inline-block;
             background: var(--primary-orange);
             color: var(--white);
-            padding: 15px 40px;
+            padding: 18px 50px;
             font-size: 16px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-            font-weight: 600;
+            transition: all 0.3s;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .cta-button:hover {
             background: var(--light-orange);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.35);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
         }
 
         /* About Section */
         .about {
-            padding: 80px 20px;
+            padding: 100px 20px;
             background: var(--white);
         }
 
         .about-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 42px;
+            font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             text-align: center;
-            position: relative;
-            padding-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            letter-spacing: -0.5px;
         }
 
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
+            display: block;
+            width: 60px;
             height: 4px;
             background: var(--primary-orange);
+            margin: 20px auto 0;
+            border-radius: 2px;
         }
 
         .about-content {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-light);
-            line-height: 1.8;
+            line-height: 1.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .about-content p {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .highlight-text {
             color: var(--primary-orange);
+            font-weight: 700;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stat-card:nth-child(2) { animation-delay: 0.3s; }
+        .stat-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.1);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Video Section */
         .video-section {
-            padding: 80px 20px;
-            background: var(--dark-bg);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
         }
 
         .video-container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
@@ -177,9 +297,10 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 10px;
-            margin-top: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: slideInRight 0.8s ease-out 0.2s both;
         }
 
         .video-wrapper iframe {
@@ -192,25 +313,30 @@
         }
 
         .video-description {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 40px;
+            padding: 35px;
             background: var(--white);
-            border-left: 4px solid var(--primary-orange);
-            border-radius: 5px;
+            border-left: 5px solid var(--primary-orange);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
         .video-description h3 {
             color: var(--text-dark);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .video-description p {
             color: var(--text-light);
+            line-height: 1.8;
         }
 
         /* Benefits Section */
         .benefits {
-            padding: 80px 20px;
+            padding: 100px 20px;
             background: var(--white);
         }
 
@@ -221,55 +347,101 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .benefit-card {
-            padding: 30px;
-            background: var(--dark-bg);
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--primary-orange);
+            padding: 40px;
+            background: var(--light-bg);
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
         }
 
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-orange);
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.1s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.2s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.3s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(6) { animation-delay: 0.5s; }
+
         .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.15);
+            border-color: var(--primary-orange);
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
         .benefit-card h3 {
-            color: var(--primary-orange);
+            color: var(--text-dark);
             margin-bottom: 15px;
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .benefit-card p {
             color: var(--text-light);
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         /* FAQ Section */
         .faq {
-            padding: 80px 20px;
-            background: var(--dark-bg);
+            padding: 100px 20px;
+            background: var(--light-bg);
         }
 
         .faq-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .faq-item {
             background: var(--white);
             margin-bottom: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.6s ease-out;
+            border-left: 4px solid var(--primary-orange);
+            transition: all 0.3s;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0s; }
+        .faq-item:nth-child(2) { animation-delay: 0.1s; }
+        .faq-item:nth-child(3) { animation-delay: 0.2s; }
+        .faq-item:nth-child(4) { animation-delay: 0.3s; }
+        .faq-item:nth-child(5) { animation-delay: 0.4s; }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .faq-item.active {
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
         }
 
         .faq-question {
-            padding: 20px;
+            padding: 25px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -279,84 +451,127 @@
             width: 100%;
             font-size: 16px;
             color: var(--text-dark);
-            font-weight: 500;
-            transition: background 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
         .faq-question:hover {
-            background: var(--dark-bg);
+            background: #FAFAFA;
         }
 
-        .faq-question::after {
-            content: '+';
-            font-size: 24px;
-            color: var(--primary-orange);
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            color: var(--white);
+            font-weight: bold;
+            transition: all 0.3s;
         }
 
-        .faq-item.active .faq-question::after {
-            content: '−';
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            padding: 0 20px;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
+            transition: max-height 0.3s ease, padding 0.3s ease;
             color: var(--text-light);
         }
 
         .faq-item.active .faq-answer {
-            padding: 20px;
+            padding: 25px;
             max-height: 500px;
         }
 
-        /* CTA Section */
+        .faq-answer p {
+            line-height: 1.8;
+        }
+
+        /* Final CTA Section */
         .final-cta {
-            padding: 80px 20px;
+            padding: 120px 20px;
             background: linear-gradient(135deg, var(--primary-orange) 0%, var(--light-orange) 100%);
             text-align: center;
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .final-cta-container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .final-cta h2 {
-            font-size: 42px;
+            font-size: 48px;
             margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .final-cta p {
             font-size: 18px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             opacity: 0.95;
+            line-height: 1.6;
         }
 
         .cta-button-white {
             display: inline-block;
             background: var(--white);
             color: var(--primary-orange);
-            padding: 15px 40px;
+            padding: 18px 50px;
             font-size: 16px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s;
-            font-weight: 600;
+            transition: all 0.3s;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .cta-button-white:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         footer {
             background: var(--text-dark);
             color: var(--white);
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -368,23 +583,25 @@
         .footer-contact {
             margin-bottom: 20px;
             font-size: 16px;
+            font-weight: 500;
         }
 
         .footer-contact a {
             color: var(--primary-orange);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .footer-contact a:hover {
-            text-decoration: underline;
+            color: var(--light-orange);
         }
 
         .footer-copyright {
             color: #999;
             font-size: 14px;
-            margin-top: 20px;
+            margin-top: 25px;
             border-top: 1px solid #444;
-            padding-top: 20px;
+            padding-top: 25px;
         }
 
         /* Responsive */
@@ -394,11 +611,15 @@
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
             }
 
             .section-title {
-                font-size: 24px;
+                font-size: 32px;
             }
 
             .benefits-grid {
@@ -406,7 +627,11 @@
             }
 
             .final-cta h2 {
-                font-size: 28px;
+                font-size: 32px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -429,7 +654,7 @@
     <section class="hero">
         <div class="hero-container">
             <h1>Крипто Стратегия <span class="highlight">Easy Peasy Systems</span></h1>
-            <p>Прибыльная торговая система на криптовалютах, которая работает. От $5,000+ доход в месяц.</p>
+            <p class="hero-subtitle">Прибыльная торговая система на криптовалютах, которая работает. От $5,000+ доход в месяц.</p>
             <a href="https://t.me/easypeasysystem/" class="cta-button">Присоединиться к сообществу</a>
         </div>
     </section>
@@ -463,6 +688,21 @@
                     (пишу в ответ на сообщения)
                 </p>
             </div>
+
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">$5K+</div>
+                    <div class="stat-label">Доход в месяц</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$60K</div>
+                    <div class="stat-label">Мой капитал</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Мой возраст</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -485,7 +725,7 @@
                 <h3>Что такое Easy Peasy Systems?</h3>
                 <p>
                     Это <span class="highlight-text">прибыльная торговая система</span>, которая позволяет зарабатывать на крипто-рынке стабильно и безопасно.
-                    Система основана на проверенных стратегиях, технического анализа и правильного риск-менеджмента.
+                    Система основана на проверенных стратегиях технического анализа и правильного риск-менеджмента.
                     Подходит как для начинающих, так и для опытных трейдеров.
                 </p>
             </div>
@@ -499,32 +739,38 @@
 
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <h3>💰 Стабильный доход</h3>
+                    <div class="benefit-icon">💰</div>
+                    <h3>Стабильный доход</h3>
                     <p>Система разработана для генерирования прибыли в любых рыночных условиях.</p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>📊 Подробное обучение</h3>
+                    <div class="benefit-icon">📊</div>
+                    <h3>Подробное обучение</h3>
                     <p>Шаг за шагом вы изучите всю стратегию и сможете применять её самостоятельно.</p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>👥 Сообщество</h3>
+                    <div class="benefit-icon">👥</div>
+                    <h3>Сообщество</h3>
                     <p>Общение с единомышленниками, обмен опытом и взаимная поддержка трейдеров.</p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>🛡️ Управление рисками</h3>
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Управление рисками</h3>
                     <p>Проверенные методы защиты капитала и минимизации убытков.</p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>📈 Практические инструменты</h3>
+                    <div class="benefit-icon">📈</div>
+                    <h3>Практические инструменты</h3>
                     <p>Всё необходимое для анализа рынка и принятия правильных решений.</p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>🎯 Персональная поддержка</h3>
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Персональная поддержка</h3>
                     <p>Помощь в реализации стратегии и ответы на все возникающие вопросы.</p>
                 </div>
             </div>
@@ -537,35 +783,50 @@
             <h2 class="section-title">Часто задаваемые вопросы</h2>
 
             <div class="faq-item">
-                <button class="faq-question">Нужны ли специальные знания для начала?</button>
+                <button class="faq-question">
+                    <span>Нужны ли специальные знания для начала?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
                 <div class="faq-answer">
                     <p>Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ, и вы будете двигаться в собственном темпе.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Сколько времени нужно уделять торговле?</button>
+                <button class="faq-question">
+                    <span>Сколько времени нужно уделять торговле?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
                 <div class="faq-answer">
                     <p>На начальном этапе — время на обучение. После освоения системы — 1-2 часа в день достаточно для анализа и открытия позиций.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Гарантирует ли система 100% прибыль?</button>
+                <button class="faq-question">
+                    <span>Гарантирует ли система 100% прибыль?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
                 <div class="faq-answer">
                     <p>Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии. Возможны убытки, если игнорировать риск-менеджмент.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Какой капитал нужен для старта?</button>
+                <button class="faq-question">
+                    <span>Какой капитал нужен для старта?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
                 <div class="faq-answer">
                     <p>Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли и применения всех принципов риск-менеджмента.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Как часто вы выкладываете новые материалы?</button>
+                <button class="faq-question">
+                    <span>Как часто вы выкладываете новые материалы?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
                 <div class="faq-answer">
                     <p>Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии на основе текущих тенденций.</p>
                 </div>
