@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крипто Стратегия Easy Peasy Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Color scheme: white and orange */
+        :root {
+            --primary-orange: #FF6B35;
+            --light-orange: #FF8555;
+            --dark-bg: #F8F8F8;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-orange);
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--dark-bg) 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-orange);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: var(--light-orange);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-orange);
+        }
+
+        .about-content {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-text {
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 20px;
+            background: var(--dark-bg);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--white);
+            border-left: 4px solid var(--primary-orange);
+            border-radius: 5px;
+        }
+
+        .video-description h3 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .video-description p {
+            color: var(--text-light);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            padding: 30px;
+            background: var(--dark-bg);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-orange);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 20px;
+            background: var(--dark-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--dark-bg);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-orange);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--light-orange) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-orange);
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+            font-weight: 600;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-contact {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-contact a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            color: #999;
+            font-size: 14px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Easy Peasy Systems</div>
+            <nav>
+                <a href="#about">Обо мне</a>
+                <a href="#video">Видео</a>
+                <a href="#benefits">Преимущества</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Крипто Стратегия <span class="highlight">Easy Peasy Systems</span></h1>
+            <p>Прибыльная торговая система на криптовалютах, которая работает. От $5,000+ доход в месяц.</p>
+            <a href="https://t.me/easypeasysystem/" class="cta-button">Присоединиться к сообществу</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title">Моя история</h2>
+            <div class="about-content">
+                <p>
+                    Торговать я начал пробовать в <span class="highlight-text">2021 году</span>, на самой первой бычке.
+                    В связи с тем, что раньше рынок отдавал гораздо больше, мне удалось заработать неплохую сумму на тот момент.
+                    Но с управлением и сохранением в дальнейшем я не справился.
+                </p>
+                <p>
+                    <span class="highlight-text">24 октября 2024</span> я потерял все в крипте. Ушел в найм, двигался по пятидневке.
+                    Без образования, лишь с идеей в голове.
+                </p>
+                <p>
+                    Примерно <span class="highlight-text">около года назад</span> я реализовал все свои мысли,
+                    используя Notion и две ночи упорной работы. Нашел людей с похожими идеями,
+                    приобрел обучение и окончательно допилил систему.
+                </p>
+                <p>
+                    Рискнул, попал к правильным людям, показал результат. Теперь я управляю собственной разработкой,
+                    зарабатываю от <span class="highlight-text">$5.000 в месяц</span> и имею капитал в <span class="highlight-text">$60.000</span>.
+                    Для своих 20 лет — это неплохо. Дальше — больше 🤝
+                </p>
+                <p style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--primary-orange);">
+                    <strong>Мой контакт:</strong> <a href="https://t.me/easypeasytrade" style="color: var(--primary-orange); text-decoration: none;">@easypeasytrade</a>
+                    (пишу в ответ на сообщения)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="video-container">
+            <h2 class="section-title">О стратегии Easy Peasy</h2>
+
+            <!-- YouTube Video Embed -->
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/c9UKnKVCaSU"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="video-description">
+                <h3>Что такое Easy Peasy Systems?</h3>
+                <p>
+                    Это <span class="highlight-text">прибыльная торговая система</span>, которая позволяет зарабатывать на крипто-рынке стабильно и безопасно.
+                    Система основана на проверенных стратегиях, технического анализа и правильного риск-менеджмента.
+                    Подходит как для начинающих, так и для опытных трейдеров.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="benefits-container">
+            <h2 class="section-title">Что вы получите</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>💰 Стабильный доход</h3>
+                    <p>Система разработана для генерирования прибыли в любых рыночных условиях.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>📊 Подробное обучение</h3>
+                    <p>Шаг за шагом вы изучите всю стратегию и сможете применять её самостоятельно.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>👥 Сообщество</h3>
+                    <p>Общение с единомышленниками, обмен опытом и взаимная поддержка трейдеров.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🛡️ Управление рисками</h3>
+                    <p>Проверенные методы защиты капитала и минимизации убытков.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>📈 Практические инструменты</h3>
+                    <p>Всё необходимое для анализа рынка и принятия правильных решений.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🎯 Персональная поддержка</h3>
+                    <p>Помощь в реализации стратегии и ответы на все возникающие вопросы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">Нужны ли специальные знания для начала?</button>
+                <div class="faq-answer">
+                    <p>Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ, и вы будете двигаться в собственном темпе.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Сколько времени нужно уделять торговле?</button>
+                <div class="faq-answer">
+                    <p>На начальном этапе — время на обучение. После освоения системы — 1-2 часа в день достаточно для анализа и открытия позиций.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Гарантирует ли система 100% прибыль?</button>
+                <div class="faq-answer">
+                    <p>Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии. Возможны убытки, если игнорировать риск-менеджмент.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Какой капитал нужен для старта?</button>
+                <div class="faq-answer">
+                    <p>Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли и применения всех принципов риск-менеджмента.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Как часто вы выкладываете новые материалы?</button>
+                <div class="faq-answer">
+                    <p>Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии на основе текущих тенденций.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>Начните свой путь в крипто-трейдинге прямо сейчас</h2>
+            <p>Присоединитесь к сообществу Easy Peasy Systems и начните зарабатывать по проверенной стратегии</p>
+            <a href="https://t.me/easypeasysystem/" class="cta-button-white">Присоединиться к сообществу</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                © 2025 Easy Peasy Systems |
+                <a href="https://t.me/easypeasytrade">@easypeasytrade</a> |
+                <a href="https://t.me/easypeasysystem/">Наше сообщество</a>
+            </div>
+            <div class="footer-copyright">
+                Торговля на крипто-рынке несёт риски. Торгуйте ответственно.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
