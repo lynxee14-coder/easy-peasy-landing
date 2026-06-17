@@ -28,27 +28,14 @@
             --text-light: #CCCCCC;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes pulse {
@@ -56,36 +43,13 @@
             50% { transform: scale(1.05); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.3),
-                            0 0 40px rgba(255, 107, 53, 0.1);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(255, 107, 53, 0.6),
-                            0 0 80px rgba(255, 107, 53, 0.3);
-            }
-        }
-
-        @keyframes rotate3d {
-            from { transform: rotateX(0deg) rotateY(0deg); }
-            to { transform: rotateX(5deg) rotateY(5deg); }
-        }
-
-        /* Header */
         header {
             background: var(--dark-bg);
-            padding: 15px 0;
+            padding: 20px 0;
             box-shadow: 0 4px 20px rgba(255, 107, 53, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            animation: fadeInUp 0.6s ease-out;
             border-bottom: 1px solid rgba(255, 107, 53, 0.1);
         }
 
@@ -99,7 +63,7 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary-orange);
             letter-spacing: -0.5px;
@@ -118,14 +82,13 @@
             color: var(--primary-orange);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
-            padding: 140px 20px;
+            padding: 150px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -143,23 +106,11 @@
             animation: pulse 6s infinite;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
         .hero-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 {
@@ -169,12 +120,11 @@
             margin-bottom: 20px;
             line-height: 1.1;
             letter-spacing: -1.5px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 .highlight {
             color: var(--primary-orange);
-            display: inline-block;
-            position: relative;
         }
 
         .hero-subtitle {
@@ -210,41 +160,13 @@
             box-shadow: 0 20px 60px rgba(255, 107, 53, 0.5);
         }
 
-        .cta-button:active {
-            transform: translateY(-2px);
-        }
-
-        /* Crypto Icons */
-        .crypto-icons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-        }
-
-        .crypto-icon {
-            position: absolute;
-            font-size: 80px;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .crypto-icon:nth-child(1) { top: 15%; right: 10%; animation-delay: 0s; }
-        .crypto-icon:nth-child(2) { top: 60%; right: 5%; animation-delay: 1s; }
-        .crypto-icon:nth-child(3) { bottom: 20%; left: 10%; animation-delay: 2s; }
-        .crypto-icon:nth-child(4) { top: 40%; left: 5%; animation-delay: 3s; }
-
-        /* About Section */
         .about {
             padding: 120px 20px;
             background: var(--darker-bg);
-            position: relative;
         }
 
         .about-container {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -252,31 +174,36 @@
             font-size: 48px;
             font-weight: 800;
             color: var(--white);
-            margin-bottom: 60px;
+            margin-bottom: 15px;
             text-align: center;
-            animation: fadeInUp 0.8s ease-out;
             letter-spacing: -1px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 5px;
-            background: var(--primary-orange);
-            margin: 25px auto 0;
-            border-radius: 3px;
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .about-content {
-            font-size: 18px;
-            color: var(--text-light);
-            line-height: 2;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            display: grid;
+            gap: 25px;
         }
 
-        .about-content p {
-            margin-bottom: 28px;
+        .about-text-block {
+            padding: 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .about-text-block p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 0;
         }
 
         .highlight-text {
@@ -286,7 +213,7 @@
 
         .about-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             margin-top: 60px;
         }
@@ -295,18 +222,14 @@
             text-align: center;
             padding: 40px;
             background: var(--card-bg);
-            border-radius: 15px;
-            animation: fadeInUp 0.6s ease-out;
-            transition: all 0.3s;
+            border-radius: 12px;
             border: 1px solid rgba(255, 107, 53, 0.2);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.4s; }
-
         .stat-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: rgba(255, 107, 53, 0.6);
             box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
         }
@@ -326,15 +249,13 @@
             letter-spacing: 1px;
         }
 
-        /* Video Section */
         .video-section {
             padding: 120px 20px;
             background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
-            position: relative;
         }
 
         .video-container {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -351,13 +272,13 @@
             border: 2px solid rgba(255, 107, 53, 0.2);
         }
 
-        .video-wrapper iframe {
+        .video-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            border-radius: 18px;
         }
 
         .video-description {
@@ -365,7 +286,7 @@
             padding: 40px;
             background: var(--card-bg);
             border-left: 5px solid var(--primary-orange);
-            border-radius: 15px;
+            border-radius: 12px;
             box-shadow: 0 10px 40px rgba(255, 107, 53, 0.15);
             animation: fadeInUp 0.8s ease-out 0.4s both;
             border: 1px solid rgba(255, 107, 53, 0.2);
@@ -383,107 +304,110 @@
             line-height: 1.8;
         }
 
-        /* Benefits Section */
         .benefits {
             padding: 120px 20px;
             background: var(--darker-bg);
         }
 
         .benefits-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 70px;
+        .benefits-list {
+            margin-top: 60px;
         }
 
-        .benefit-card {
-            padding: 45px;
+        .benefit-module {
             background: var(--card-bg);
-            border-radius: 15px;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 107, 53, 0.15);
-            animation: fadeInUp 0.6s ease-out;
-            position: relative;
+            margin-bottom: 20px;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out;
+            border-left: 5px solid var(--primary-orange);
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--primary-orange);
+        .benefit-module:hover {
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
+            border-left-color: var(--light-orange);
         }
 
-        .benefit-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .benefit-header {
+            padding: 30px;
+            background: var(--card-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        .benefit-card:nth-child(1) { animation-delay: 0s; }
-        .benefit-card:nth-child(2) { animation-delay: 0.1s; }
-        .benefit-card:nth-child(3) { animation-delay: 0.2s; }
-        .benefit-card:nth-child(4) { animation-delay: 0.3s; }
-        .benefit-card:nth-child(5) { animation-delay: 0.4s; }
-        .benefit-card:nth-child(6) { animation-delay: 0.5s; }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 107, 53, 0.6);
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.25);
-        }
-
-        .benefit-card:hover::after {
-            opacity: 1;
+        .benefit-title {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
         }
 
         .benefit-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: float 6s ease-in-out infinite;
+            font-size: 32px;
+            min-width: 40px;
+            text-align: center;
         }
 
-        .benefit-card h3 {
-            color: var(--white);
-            margin-bottom: 15px;
-            font-size: 20px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
+        .benefit-toggle {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            color: var(--darker-bg);
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 18px;
+            flex-shrink: 0;
         }
 
-        .benefit-card p {
+        .benefit-module.active .benefit-toggle {
+            transform: rotate(45deg);
+            background: var(--light-orange);
+        }
+
+        .benefit-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
             color: var(--text-light);
+        }
+
+        .benefit-module.active .benefit-content {
+            padding: 30px;
+            max-height: 500px;
+        }
+
+        .benefit-content p {
             line-height: 1.8;
             font-size: 15px;
-            position: relative;
-            z-index: 1;
+            margin: 0;
         }
 
-        /* FAQ Section */
         .faq {
             padding: 120px 20px;
             background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
         }
 
         .faq-container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 60px;
         }
 
         .faq-item {
@@ -495,28 +419,19 @@
             animation: fadeInUp 0.6s ease-out;
             border-left: 4px solid var(--primary-orange);
             transition: all 0.3s;
-            border: 1px solid rgba(255, 107, 53, 0.15);
+            cursor: pointer;
         }
 
-        .faq-item:nth-child(1) { animation-delay: 0s; }
-        .faq-item:nth-child(2) { animation-delay: 0.1s; }
-        .faq-item:nth-child(3) { animation-delay: 0.2s; }
-        .faq-item:nth-child(4) { animation-delay: 0.3s; }
-        .faq-item:nth-child(5) { animation-delay: 0.4s; }
-
         .faq-item:hover {
-            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.15);
-            border-color: rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
         }
 
         .faq-item.active {
             box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);
-            border-color: rgba(255, 107, 53, 0.6);
         }
 
         .faq-question {
-            padding: 28px;
-            cursor: pointer;
+            padding: 28px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -527,6 +442,7 @@
             color: var(--white);
             font-weight: 600;
             transition: all 0.3s;
+            gap: 20px;
         }
 
         .faq-question:hover {
@@ -545,6 +461,7 @@
             font-weight: bold;
             transition: all 0.3s;
             font-size: 18px;
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-toggle {
@@ -553,7 +470,7 @@
         }
 
         .faq-answer {
-            padding: 0 28px;
+            padding: 0 30px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
@@ -561,18 +478,18 @@
         }
 
         .faq-item.active .faq-answer {
-            padding: 28px;
+            padding: 30px;
             max-height: 500px;
         }
 
         .faq-answer p {
             line-height: 1.8;
+            margin: 0;
         }
 
-        /* Final CTA Section */
         .final-cta {
             padding: 140px 20px;
-            background: linear-gradient(135deg, var(--primary-orange) 0%, #FF5722 100%);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--light-orange) 100%);
             text-align: center;
             color: var(--white);
             position: relative;
@@ -644,7 +561,6 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
-        /* Footer */
         footer {
             background: #0A0A0A;
             color: var(--white);
@@ -682,49 +598,20 @@
             padding-top: 25px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .final-cta h2 {
-                font-size: 36px;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .crypto-icon {
-                font-size: 50px;
-            }
+            nav { display: none; }
+            .hero h1 { font-size: 40px; }
+            .section-title { font-size: 36px; }
+            .final-cta h2 { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo">Easy Peasy Systems</div>
             <nav>
-                <a href="#about">Обо мне</a>
+                <a href="#about">О продукте</a>
                 <a href="#video">Видео</a>
                 <a href="#benefits">Преимущества</a>
                 <a href="#faq">FAQ</a>
@@ -732,14 +619,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="crypto-icons">
-            <span class="crypto-icon">₿</span>
-            <span class="crypto-icon">Ξ</span>
-            <span class="crypto-icon">💰</span>
-            <span class="crypto-icon">📈</span>
-        </div>
         <div class="hero-container">
             <h1>Авторская Стратегия <span class="highlight">Easy Peasy Systems</span></h1>
             <p class="hero-subtitle">Торговая стратегия с быстрыми отработками и идеальными точками входа. Присоединяйся к профессионалам и зарабатывай стабильно.</p>
@@ -747,34 +627,27 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
             <h2 class="section-title">Моя история успеха</h2>
+            <p class="section-subtitle">Путь от потерь к стабильному доходу в крипто-трейдинге</p>
+
             <div class="about-content">
-                <p>
-                    Торговать я начал пробовать в <span class="highlight-text">2021 году</span>, на самой первой бычке.
-                    В связи с тем, что раньше рынок отдавал гораздо больше, мне удалось заработать неплохую сумму на тот момент.
-                    Но с управлением и сохранением в дальнейшем я не справился.
-                </p>
-                <p>
-                    <span class="highlight-text">24 октября 2024</span> я потерял все в крипте. Ушел в найм, двигался по пятидневке.
-                    Без образования, лишь с идеей в голове. Это был переломный момент.
-                </p>
-                <p>
-                    Примерно <span class="highlight-text">около года назад</span> я реализовал все свои мысли,
-                    используя Notion и две ночи упорной работы. Нашел людей с похожими идеями,
-                    приобрел обучение и окончательно допилил систему.
-                </p>
-                <p>
-                    Рискнул, попал к правильным людям, показал результат. Теперь я управляю собственной разработкой,
-                    зарабатываю от <span class="highlight-text">$5.000 в месяц</span> и имею капитал в <span class="highlight-text">$60.000</span>.
-                    Для своих 20 лет — это неплохо. Дальше — больше 🤝
-                </p>
-                <p style="margin-top: 30px; padding-top: 25px; border-top: 2px solid rgba(255, 107, 53, 0.2);">
-                    <strong>Мой контакт:</strong> <a href="https://t.me/easypeasytrade" style="color: var(--primary-orange); text-decoration: none;">@easypeasytrade</a>
-                    (пишу в ответ на сообщения)
-                </p>
+                <div class="about-text-block">
+                    <p>Торговать я начал пробовать в <span class="highlight-text">2021 году</span>, на самой первой бычке. В связи с тем, что раньше рынок отдавал гораздо больше, мне удалось заработать неплохую сумму на тот момент. Но с управлением и сохранением в дальнейшем я не справился.</p>
+                </div>
+
+                <div class="about-text-block">
+                    <p><span class="highlight-text">24 октября 2024</span> я потерял все в крипте. Ушел в найм, двигался по пятидневке. Без образования, лишь с идеей в голове. Это был переломный момент в моей жизни.</p>
+                </div>
+
+                <div class="about-text-block">
+                    <p>Примерно <span class="highlight-text">около года назад</span> я реализовал все свои мысли, используя Notion и две ночи упорной работы. Нашел людей с похожими идеями, приобрел обучение и окончательно допилил систему.</p>
+                </div>
+
+                <div class="about-text-block">
+                    <p>Рискнул, попал к правильным людям, показал результат. Теперь я управляю собственной разработкой, зарабатываю от <span class="highlight-text">$5.000 в месяц</span> и имею капитал в <span class="highlight-text">$60.000</span>. Для своих 20 лет — это неплохо. Дальше — больше 🤝</p>
+                </div>
             </div>
 
             <div class="about-stats">
@@ -794,17 +667,13 @@
         </div>
     </section>
 
-    <!-- Video Section -->
     <section class="video-section" id="video">
         <div class="video-container">
             <h2 class="section-title">О стратегии Easy Peasy</h2>
+            <p class="section-subtitle">Посмотри демонстрацию работы стратегии</p>
 
-            <!-- Local Video Player -->
             <div class="video-wrapper">
-                <video
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px;"
-                    controls
-                    controlsList="nodownload">
+                <video controls controlsList="nodownload">
                     <source src="./mp3 for EASY PEASY.mp4" type="video/mp4">
                     Ваш браузер не поддерживает видео.
                 </video>
@@ -812,118 +681,157 @@
 
             <div class="video-description">
                 <h3>💡 Что такое Easy Peasy Systems?</h3>
-                <p>
-                    Это <span class="highlight-text">авторская торговая стратегия</span> с быстрыми отработками и идеальными точками входа.
-                    Стратегия основана на проверенных методах технического анализа, правильном риск-менеджменте и точных сигналах входа.
-                    Результат: стабильная прибыль для трейдеров всех уровней опыта.
-                </p>
+                <p>Это <span class="highlight-text">авторская торговая стратегия</span> с быстрыми отработками и идеальными точками входа. Стратегия основана на проверенных методах технического анализа, правильном риск-менеджменте и точных сигналах входа. Результат: стабильная прибыль для трейдеров всех уровней опыта.</p>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
     <section class="benefits" id="benefits">
         <div class="benefits-container">
             <h2 class="section-title">Что вы получите</h2>
+            <p class="section-subtitle">Все необходимое для успешной торговли</p>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Стабильный доход</h3>
-                    <p>Система разработана для генерирования прибыли в любых рыночных условиях.</p>
+            <div class="benefits-list">
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">💰</span>
+                            <h3 class="benefit-title">Стабильный доход</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Система разработана специально для генерирования прибыли в любых рыночных условиях. Проверенные сигналы и точки входа обеспечивают постоянный доход.</p>
+                    </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3>Подробное обучение</h3>
-                    <p>Шаг за шагом вы изучите всю стратегию и сможете применять её самостоятельно.</p>
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">📊</span>
+                            <h3 class="benefit-title">Подробное обучение</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Шаг за шагом вы изучите всю стратегию и сможете применять её самостоятельно. Полный курс включает видеоуроки, практические задания и персональную поддержку.</p>
+                    </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">👥</div>
-                    <h3>Сообщество</h3>
-                    <p>Общение с единомышленниками, обмен опытом и взаимная поддержка трейдеров.</p>
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">👥</span>
+                            <h3 class="benefit-title">Сообщество трейдеров</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Общение с единомышленниками, обмен опытом и взаимная поддержка. В нашем сообществе вы найдете мотивацию и помощь на каждом этапе.</p>
+                    </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Управление рисками</h3>
-                    <p>Проверенные методы защиты капитала и минимизации убытков.</p>
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">🛡️</span>
+                            <h3 class="benefit-title">Управление рисками</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Проверенные методы защиты капитала и минимизации убытков. Каждая сделка рассчитана с учетом максимальной безопасности вашего портфеля.</p>
+                    </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Практические инструменты</h3>
-                    <p>Всё необходимое для анализа рынка и принятия правильных решений.</p>
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">📈</span>
+                            <h3 class="benefit-title">Практические инструменты</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Всё необходимое для анализа рынка и принятия правильных решений. Готовые к использованию инструменты и алгоритмы для торговли.</p>
+                    </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Персональная поддержка</h3>
-                    <p>Помощь в реализации стратегии и ответы на все возникающие вопросы.</p>
+                <div class="benefit-module">
+                    <div class="benefit-header">
+                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+                            <span class="benefit-icon">🎯</span>
+                            <h3 class="benefit-title">Персональная поддержка</h3>
+                        </div>
+                        <span class="benefit-toggle">+</span>
+                    </div>
+                    <div class="benefit-content">
+                        <p>Помощь в реализации стратегии и ответы на все возникающие вопросы. Куратор всегда рядом, чтобы помочь вам на пути к успеху.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="faq-container">
             <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <p class="section-subtitle">Ответы на самые популярные вопросы</p>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Нужны ли специальные знания для начала?</span>
-                    <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ, и вы будете двигаться в собственном темпе.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Нужны ли специальные знания для начала?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ, и вы будете двигаться в собственном темпе. Опыт трейдинга не требуется.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Сколько времени нужно уделять торговле?</span>
-                    <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>На начальном этапе — время на обучение. После освоения системы — 1-2 часа в день достаточно для анализа и открытия позиций.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Сколько времени нужно уделять торговле?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>На начальном этапе — время на обучение (несколько часов в неделю). После освоения системы — 1-2 часа в день достаточно для анализа и открытия позиций.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Гарантирует ли система 100% прибыль?</span>
-                    <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии. Возможны убытки, если игнорировать риск-менеджмент.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Гарантирует ли система 100% прибыль?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии. Важен дисциплинированный подход к риск-менеджменту.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Какой капитал нужен для старта?</span>
-                    <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли и применения всех принципов риск-менеджмента.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Какой капитал нужен для старта?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли и применения всех принципов риск-менеджмента.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Как часто вы выкладываете новые материалы?</span>
-                    <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии на основе текущих тенденций.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как часто обновляется стратегия?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии на основе текущих тенденций крипто-рынка.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="final-cta-container">
             <h2>Готов зарабатывать по проверенной стратегии?</h2>
@@ -932,7 +840,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
@@ -947,12 +854,14 @@
     </footer>
 
     <script>
-        // FAQ toggle functionality
-        const faqItems = document.querySelectorAll('.faq-item');
+        document.querySelectorAll('.benefit-module').forEach(module => {
+            module.querySelector('.benefit-header').addEventListener('click', () => {
+                module.classList.toggle('active');
+            });
+        });
 
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
                 item.classList.toggle('active');
             });
         });
