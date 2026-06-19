@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Peasy Systems - Крипто Стратегия v2.0</title>
-    <meta name="version" content="2.0-premium-ui">
+    <title>Easy Peasy Systems - Крипто Стратегия</title>
     <style>
         * {
             margin: 0;
@@ -13,113 +12,103 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #202020;
             background: #FFFAF4;
         }
 
         :root {
-            --primary-brown: #6F5746;
-            --light-brown: #8B6F5F;
-            --accent-brown: #C1B3A0;
-            --light-bg: #FFFAF4;
-            --card-bg: #F7F0EA;
-            --dark-text: #202020;
-            --text-light: #6F5746;
+            --primary: #6F5746;
+            --light: #8B6F5F;
+            --bg: #FFFAF4;
+            --card: #F7F0EA;
+            --text: #202020;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
         }
 
         header {
-            background: var(--light-bg);
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(111, 87, 70, 0.08);
+            background: var(--bg);
+            padding: 20px 40px;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(111, 87, 70, 0.1);
+            box-shadow: 0 2px 10px rgba(111, 87, 70, 0.08);
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-brown);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
             letter-spacing: -0.5px;
         }
 
         nav a {
-            margin-left: 40px;
+            margin-left: 50px;
             text-decoration: none;
-            color: #202020;
-            transition: color 0.3s;
-            font-size: 14px;
+            color: var(--text);
+            font-size: 15px;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--primary-brown);
+            color: var(--primary);
         }
 
         .hero {
-            background: linear-gradient(135deg, #FFFAF4 0%, #F7F0EA 100%);
-            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--card) 100%);
+            padding: 100px 40px;
             position: relative;
             overflow: hidden;
             min-height: 85vh;
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 20%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
+            top: 10%;
+            right: -100px;
+            width: 700px;
+            height: 700px;
             background: radial-gradient(circle, rgba(111, 87, 70, 0.12) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulse 8s infinite;
             z-index: 0;
         }
 
-        .hero-container {
+        .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-content {
+        .hero-text {
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -134,337 +123,182 @@
         .accent-bar {
             width: 6px;
             height: 80px;
-            background: var(--primary-brown);
+            background: var(--primary);
             border-radius: 3px;
+            flex-shrink: 0;
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 64px;
             font-weight: 800;
-            color: #202020;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            letter-spacing: -1.5px;
+            color: var(--text);
+            line-height: 1.1;
+            letter-spacing: -1px;
             animation: fadeInUp 0.8s ease-out;
-            text-align: left;
         }
 
-        .hero h1 .highlight {
-            color: var(--primary-brown);
-        }
-
-        .hero-subtitle {
+        .hero p {
             font-size: 18px;
-            color: #6F5746;
-            margin-bottom: 50px;
-            max-width: none;
-            margin-left: 0;
-            margin-right: 0;
-            line-height: 1.6;
+            color: var(--primary);
+            line-height: 1.7;
             animation: fadeInUp 0.8s ease-out 0.1s both;
-            text-align: left;
         }
 
-        .cta-button {
+        .cta-btn {
             display: inline-block;
-            background: var(--primary-brown);
-            color: #FFFFFF;
+            background: var(--primary);
+            color: white;
             padding: 18px 50px;
             font-size: 18px;
+            font-weight: 700;
             border: none;
             border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-weight: 700;
-            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.3);
+            box-shadow: 0 10px 30px rgba(111, 87, 70, 0.3);
+            width: fit-content;
             animation: fadeInUp 0.8s ease-out 0.2s both;
-            max-width: fit-content;
         }
 
-        .cta-button:hover {
-            background: var(--light-brown);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.4);
+        .cta-btn:hover {
+            background: var(--light);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(111, 87, 70, 0.4);
         }
 
         .hero-image {
             width: 100%;
             height: auto;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.2);
-            animation: slideInRight 0.8s ease-out 0.2s both;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.15);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
-        .about {
-            padding: 120px 20px;
-            background: var(--light-bg);
+        .section {
+            padding: 120px 40px;
+            background: var(--bg);
         }
 
-        .about-container {
-            max-width: 1000px;
+        .section-alt {
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 48px;
+        .section h2 {
+            font-size: 56px;
             font-weight: 800;
-            color: #202020;
+            color: var(--text);
             margin-bottom: 15px;
-            text-align: center;
             letter-spacing: -1px;
         }
 
         .section-subtitle {
-            font-size: 16px;
-            color: #6F5746;
-            text-align: center;
+            font-size: 18px;
+            color: var(--primary);
             margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
         }
 
-        .about-content {
+        .stats-grid {
             display: grid;
-            gap: 25px;
-        }
-
-        .about-text-block {
-            padding: 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .about-text-block p {
-            font-size: 16px;
-            color: #6F5746;
-            line-height: 1.9;
-            margin-bottom: 0;
-        }
-
-        .highlight-text {
-            color: var(--primary-brown);
-            font-weight: 700;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             margin-top: 60px;
         }
 
         .stat-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: #FFFFFF;
-            border-radius: 16px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
             border: 2px solid rgba(111, 87, 70, 0.1);
+            text-align: center;
             transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out;
             box-shadow: 0 4px 15px rgba(111, 87, 70, 0.08);
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .stat-card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary-brown);
+            border-color: var(--primary);
             box-shadow: 0 16px 40px rgba(111, 87, 70, 0.15);
         }
 
         .stat-number {
             font-size: 52px;
             font-weight: 800;
-            color: var(--primary-brown);
+            color: var(--primary);
             margin-bottom: 12px;
             letter-spacing: -1px;
         }
 
         .stat-label {
             font-size: 15px;
-            color: #6F5746;
+            color: #666;
             font-weight: 600;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .video-section {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, #FFFAF4 0%, #F7F0EA 100%);
-        }
-
-        .video-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 20px;
-            margin-top: 60px;
-            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.15);
-            animation: slideInRight 0.8s ease-out 0.2s both;
-            border: 2px solid rgba(111, 87, 70, 0.15);
-        }
-
-        .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 18px;
-        }
-
-        .video-description {
-            margin-top: 50px;
-            padding: 40px;
-            background: var(--card-bg);
-            border-left: 5px solid var(--primary-brown);
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(111, 87, 70, 0.1);
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            border: 1px solid rgba(111, 87, 70, 0.15);
-        }
-
-        .video-description h3 {
-            color: #202020;
-            margin-bottom: 15px;
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .video-description p {
-            color: #6F5746;
-            line-height: 1.8;
-        }
-
-        .benefits {
-            padding: 120px 20px;
-            background: var(--light-bg);
-        }
-
-        .benefits-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .benefits-list {
-            margin-top: 60px;
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 30px;
+            margin-top: 60px;
         }
 
-        .benefit-module {
-            background: var(--card-bg);
-            margin-bottom: 0;
+        .benefit-card {
+            background: var(--card);
+            padding: 35px;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(111, 87, 70, 0.08);
-            animation: fadeInUp 0.6s ease-out;
             border: 2px solid rgba(111, 87, 70, 0.12);
             transition: all 0.3s ease;
-            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
             display: flex;
             flex-direction: column;
-            padding: 30px;
             gap: 15px;
         }
 
-        .benefit-module:hover {
+        .benefit-card:hover {
+            transform: translateY(-6px);
             box-shadow: 0 12px 40px rgba(111, 87, 70, 0.15);
             border-color: rgba(111, 87, 70, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .benefit-header {
-            padding: 30px;
-            background: var(--card-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .benefit-title {
-            color: #202020;
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0;
         }
 
         .benefit-icon {
-            font-size: 32px;
-            min-width: 40px;
-            text-align: center;
+            font-size: 40px;
         }
 
-        .benefit-toggle {
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary-brown);
-            border-radius: 50%;
-            color: #FFFFFF;
-            font-weight: bold;
-            transition: all 0.3s;
-            font-size: 18px;
-            flex-shrink: 0;
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
         }
 
-        .benefit-module.active .benefit-toggle {
-            transform: rotate(45deg);
-            background: var(--light-brown);
-        }
-
-        .benefit-content {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: #6F5746;
-        }
-
-        .benefit-module.active .benefit-content {
-            padding: 30px;
-            max-height: 500px;
-        }
-
-        .benefit-content p {
-            line-height: 1.8;
+        .benefit-text {
             font-size: 15px;
-            margin: 0;
-        }
-
-        .faq {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, #FFFAF4 0%, #F7F0EA 100%);
-        }
-
-        .faq-container {
-            max-width: 950px;
-            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
         }
 
         .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-top: 60px;
         }
 
         .faq-item {
-            background: var(--card-bg);
-            margin-bottom: 20px;
+            background: var(--card);
+            padding: 30px;
             border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(111, 87, 70, 0.08);
-            animation: fadeInUp 0.6s ease-out;
             border: 2px solid rgba(111, 87, 70, 0.12);
-            transition: all 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .faq-item:hover {
@@ -472,72 +306,53 @@
             border-color: rgba(111, 87, 70, 0.3);
         }
 
-        .faq-item.active {
-            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.2);
-        }
-
         .faq-question {
-            padding: 28px 30px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: transparent;
-            border: none;
-            width: 100%;
-            font-size: 18px;
-            color: #202020;
-            font-weight: 600;
-            transition: all 0.3s ease;
             gap: 20px;
         }
 
-        .faq-question:hover {
-            color: var(--primary-brown);
-        }
-
         .faq-toggle {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 50%;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary-brown);
-            border-radius: 50%;
-            color: #FFFFFF;
             font-weight: bold;
-            transition: all 0.3s;
-            font-size: 18px;
+            font-size: 20px;
             flex-shrink: 0;
+            transition: all 0.3s;
         }
 
         .faq-item.active .faq-toggle {
             transform: rotate(45deg);
-            background: var(--light-brown);
+            background: var(--light);
         }
 
         .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: #6F5746;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            display: none;
         }
 
         .faq-item.active .faq-answer {
-            padding: 30px;
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            line-height: 1.8;
-            margin: 0;
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
         }
 
         .final-cta {
-            padding: 140px 20px;
-            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--light-brown) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--light) 100%);
+            padding: 140px 40px;
             text-align: center;
-            color: #FFFFFF;
             position: relative;
             overflow: hidden;
         }
@@ -545,116 +360,76 @@
         .final-cta::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
+            top: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             border-radius: 50%;
         }
 
-        .final-cta::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .final-cta-container {
+        .cta-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
         }
 
         .final-cta h2 {
             font-size: 56px;
-            margin-bottom: 25px;
             font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
             letter-spacing: -1px;
-            line-height: 1.15;
         }
 
         .final-cta p {
             font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 45px;
-            opacity: 0.95;
             line-height: 1.6;
-            max-width: 700px;
         }
 
-        .cta-button-white {
-            display: inline-block;
-            background: #FFFFFF;
-            color: var(--primary-brown);
-            padding: 18px 50px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 700;
-            box-shadow: 0 15px 50px rgba(111, 87, 70, 0.25);
+        .cta-white {
+            background: white;
+            color: var(--primary);
         }
 
-        .cta-button-white:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.35);
+        .cta-white:hover {
+            background: #f5f5f5;
         }
 
         footer {
-            background: #FFFAF4;
-            color: #202020;
-            padding: 50px 20px;
+            background: var(--bg);
+            padding: 50px 40px;
             text-align: center;
             border-top: 1px solid rgba(111, 87, 70, 0.1);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-text {
+            color: #666;
+            font-size: 14px;
         }
 
-        .footer-contact {
-            margin-bottom: 20px;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .footer-contact a {
-            color: var(--primary-brown);
+        .footer-links a {
+            color: var(--primary);
             text-decoration: none;
+            margin: 0 15px;
             transition: color 0.3s;
         }
 
-        .footer-contact a:hover {
-            color: var(--light-brown);
-        }
-
-        .footer-copyright {
-            color: #999;
-            font-size: 14px;
-            margin-top: 25px;
-            border-top: 1px solid rgba(111, 87, 70, 0.1);
-            padding-top: 25px;
+        .footer-links a:hover {
+            color: var(--light);
         }
 
         @media (max-width: 768px) {
             nav { display: none; }
             .hero h1 { font-size: 40px; }
-            .hero-container { grid-template-columns: 1fr; gap: 40px; }
-            .hero-image { margin-top: 30px; }
-            .section-title { font-size: 36px; }
+            .hero-content { grid-template-columns: 1fr; gap: 40px; }
+            .section h2 { font-size: 36px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
             .final-cta h2 { font-size: 36px; }
-            .benefits-list { grid-template-columns: 1fr; }
-            .stat-card { padding: 30px 20px; }
-            .stat-number { font-size: 40px; }
         }
     </style>
 </head>
@@ -664,257 +439,158 @@
             <div class="logo">Easy Peasy Systems</div>
             <nav>
                 <a href="#about">О продукте</a>
-                <a href="#video">Видео</a>
                 <a href="#benefits">Преимущества</a>
                 <a href="#faq">FAQ</a>
+                <a href="https://t.me/m/AwidoA2nOWUy/">Сообщество</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-container">
-            <div>
-                <h1>Авторская Стратегия <span class="highlight">Easy Peasy Systems</span></h1>
-                <p class="hero-subtitle">Торговая стратегия с быстрыми отработками и идеальными точками входа. Присоединяйся к профессионалам и зарабатывай стабильно.</p>
-                <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-button">Узнать больше в сообществе</a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-accent">
+                    <div class="accent-bar"></div>
+                    <h1>Авторская Стратегия Easy Peasy Systems</h1>
+                </div>
+                <p>Торговая стратегия с быстрыми отработками и идеальными точками входа. Присоединяйся к профессионалам и зарабатывай стабильно.</p>
+                <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-btn">Узнать больше в сообществе</a>
             </div>
-            <img src="./2026-06-18 16.20.24.jpg" alt="Easy Peasy Systems" class="hero-image">
+            <img src="./2026-06-18 16.20.24.jpg" alt="Easy Peasy" class="hero-image">
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <h2 class="section-title">Моя история успеха</h2>
+    <section class="section" id="about">
+        <div class="section-container">
+            <h2>Моя история успеха</h2>
             <p class="section-subtitle">Путь от потерь к стабильному доходу в крипто-трейдинге</p>
 
-            <div class="about-content">
-                <div class="about-text-block">
-                    <p>Торговать я начал пробовать в <span class="highlight-text">2021 году</span>, на самой первой бычке. В связи с тем, что раньше рынок отдавал гораздо больше, мне удалось заработать неплохую сумму на тот момент. Но с управлением и сохранением в дальнейшем я не справился.</p>
-                </div>
-
-                <div class="about-text-block">
-                    <p><span class="highlight-text">24 октября 2024</span> я потерял все в крипте. Ушел в найм, двигался по пятидневке. Без образования, лишь с идеей в голове. Это был переломный момент в моей жизни.</p>
-                </div>
-
-                <div class="about-text-block">
-                    <p>Примерно <span class="highlight-text">около года назад</span> я реализовал все свои мысли, используя Notion и две ночи упорной работы. Нашел людей с похожими идеями, приобрел обучение и окончательно допилил систему.</p>
-                </div>
-
-                <div class="about-text-block">
-                    <p>Рискнул, попал к правильным людям, показал результат. Теперь я управляю собственной разработкой, зарабатываю от <span class="highlight-text">$5.000 в месяц</span> и имею капитал в <span class="highlight-text">$60.000</span>. Для своих 20 лет — это неплохо. Дальше — больше 🤝</p>
-                </div>
-            </div>
-
-            <div class="about-stats">
+            <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">2000+</div>
-                    <div class="stat-label">Трейдеров в Сообществе</div>
+                    <div class="stat-label">Трейдеров в сообществе</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">$5K+</div>
-                    <div class="stat-label">Средний Доход</div>
+                    <div class="stat-label">Средний месячный доход</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">24/7</div>
-                    <div class="stat-label">Поддержка Окружения</div>
+                    <div class="stat-label">Поддержка и развитие</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="video-section" id="video">
-        <div class="video-container">
-            <h2 class="section-title">О стратегии Easy Peasy</h2>
-            <p class="section-subtitle">Посмотри демонстрацию работы стратегии</p>
-
-            <div class="video-wrapper">
-                <video controls controlsList="nodownload">
-                    <source src="./video easy peasy.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-
-            <div class="video-description">
-                <h3>💡 Что такое Easy Peasy Systems?</h3>
-                <p>Это <span class="highlight-text">авторская торговая стратегия</span> с быстрыми отработками и идеальными точками входа. Стратегия основана на проверенных методах технического анализа, правильном риск-менеджменте и точных сигналах входа. Результат: стабильная прибыль для трейдеров всех уровней опыта.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefits" id="benefits">
-        <div class="benefits-container">
-            <h2 class="section-title">Что вы получите</h2>
+    <section class="section section-alt" id="benefits">
+        <div class="section-container">
+            <h2>Что вы получите</h2>
             <p class="section-subtitle">Все необходимое для успешной торговли</p>
 
-            <div class="benefits-list">
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">💰</span>
-                            <h3 class="benefit-title">Стабильный доход</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Система разработана специально для генерирования прибыли в любых рыночных условиях. Проверенные сигналы и точки входа обеспечивают постоянный доход.</p>
-                    </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">Стабильный доход</div>
+                    <div class="benefit-text">Система разработана для генерирования прибыли в любых условиях</div>
                 </div>
-
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">📊</span>
-                            <h3 class="benefit-title">Подробное обучение</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Шаг за шагом вы изучите всю стратегию и сможете применять её самостоятельно. Полный курс включает видеоуроки, практические задания и персональную поддержку.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-title">Подробное обучение</div>
+                    <div class="benefit-text">Полный курс с видеоуроками, заданиями и поддержкой</div>
                 </div>
-
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">👥</span>
-                            <h3 class="benefit-title">Сообщество трейдеров</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Общение с единомышленниками, обмен опытом и взаимная поддержка. В нашем сообществе вы найдете мотивацию и помощь на каждом этапе.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <div class="benefit-title">Сообщество трейдеров</div>
+                    <div class="benefit-text">Обмен опытом и взаимная поддержка с единомышленниками</div>
                 </div>
-
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">🛡️</span>
-                            <h3 class="benefit-title">Управление рисками</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Проверенные методы защиты капитала и минимизации убытков. Каждая сделка рассчитана с учетом максимальной безопасности вашего портфеля.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-title">Управление рисками</div>
+                    <div class="benefit-text">Проверенные методы защиты капитала и минимизации убытков</div>
                 </div>
-
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">📈</span>
-                            <h3 class="benefit-title">Практические инструменты</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Всё необходимое для анализа рынка и принятия правильных решений. Готовые к использованию инструменты и алгоритмы для торговли.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-title">Практические инструменты</div>
+                    <div class="benefit-text">Готовые инструменты и алгоритмы для торговли</div>
                 </div>
-
-                <div class="benefit-module">
-                    <div class="benefit-header">
-                        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <span class="benefit-icon">🎯</span>
-                            <h3 class="benefit-title">Персональная поддержка</h3>
-                        </div>
-                        <span class="benefit-toggle">+</span>
-                    </div>
-                    <div class="benefit-content">
-                        <p>Помощь в реализации стратегии и ответы на все возникающие вопросы. Куратор всегда рядом, чтобы помочь вам на пути к успеху.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-title">Персональная поддержка</div>
+                    <div class="benefit-text">Помощь в реализации стратегии и ответы на вопросы</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq" id="faq">
-        <div class="faq-container">
-            <h2 class="section-title">Часто задаваемые вопросы</h2>
+    <section class="section" id="faq">
+        <div class="section-container">
+            <h2>Часто задаваемые вопросы</h2>
             <p class="section-subtitle">Ответы на самые популярные вопросы</p>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <div class="faq-question">
                         <span>Нужны ли специальные знания для начала?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ, и вы будете двигаться в собственном темпе. Опыт трейдинга не требуется.</p>
+                        <div class="faq-toggle">+</div>
                     </div>
+                    <div class="faq-answer">Нет. Система разработана так, чтобы её мог освоить каждый. Все начинается с основ и вы будете двигаться в собственном темпе.</div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <div class="faq-question">
                         <span>Сколько времени нужно уделять торговле?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>На начальном этапе — время на обучение (несколько часов в неделю). После освоения системы — 1-2 часа в день достаточно для анализа и открытия позиций.</p>
+                        <div class="faq-toggle">+</div>
                     </div>
+                    <div class="faq-answer">На начальном этапе — время на обучение (несколько часов в неделю). После освоения — 1-2 часа в день достаточно для анализа и открытия позиций.</div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <div class="faq-question">
                         <span>Гарантирует ли система 100% прибыль?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии. Важен дисциплинированный подход к риск-менеджменту.</p>
+                        <div class="faq-toggle">+</div>
                     </div>
+                    <div class="faq-answer">Никакая торговая система не гарантирует 100% результат. Но Easy Peasy показывает стабильные результаты при следовании стратегии.</div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <div class="faq-question">
                         <span>Какой капитал нужен для старта?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли и применения всех принципов риск-менеджмента.</p>
+                        <div class="faq-toggle">+</div>
                     </div>
+                    <div class="faq-answer">Стартовый капитал может быть от $100, но рекомендуется не менее $500 для комфортной торговли.</div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <div class="faq-question">
                         <span>Как часто обновляется стратегия?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии на основе текущих тенденций крипто-рынка.</p>
+                        <div class="faq-toggle">+</div>
                     </div>
+                    <div class="faq-answer">Регулярно. В сообществе всегда свежая информация, анализы рынка и обновления стратегии.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="final-cta">
-        <div class="final-cta-container">
+        <div class="cta-content">
             <h2>Готов зарабатывать по проверенной стратегии?</h2>
             <p>Присоединись к нашему сообществу трейдеров и начни торговать с идеальными точками входа прямо сейчас</p>
-            <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-button-white">Подать заявку в сообщество</a>
+            <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-btn cta-white">Подать заявку в сообщество</a>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-contact">
-                © 2025 Easy Peasy Systems |
-                <a href="https://t.me/easypeasytrade">@easypeasytrade</a> |
-                <a href="https://t.me/m/AwidoA2nOWUy/">Наше сообщество</a>
-            </div>
-            <div class="footer-copyright">
-                Торговля на крипто-рынке несёт риски. Торгуйте ответственно.
-            </div>
+        <div class="footer-links">
+            © 2025 Easy Peasy Systems |
+            <a href="https://t.me/easypeasytrade">@easypeasytrade</a> |
+            <a href="https://t.me/m/AwidoA2nOWUy/">Наше сообщество</a>
+        </div>
+        <div class="footer-text" style="margin-top: 20px;">
+            Торговля на крипто-рынке несёт риски. Торгуйте ответственно.
         </div>
     </footer>
 
     <script>
-        document.querySelectorAll('.benefit-module').forEach(module => {
-            module.querySelector('.benefit-header').addEventListener('click', () => {
-                module.classList.toggle('active');
-            });
-        });
-
         document.querySelectorAll('.faq-item').forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
                 item.classList.toggle('active');
