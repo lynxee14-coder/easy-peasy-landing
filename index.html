@@ -84,8 +84,7 @@
 
         .hero {
             background: linear-gradient(135deg, #FFFAF4 0%, #F7F0EA 100%);
-            padding: 150px 20px;
-            text-align: center;
+            padding: 80px 20px;
             position: relative;
             overflow: hidden;
             min-height: 80vh;
@@ -107,20 +106,25 @@
         }
 
         .hero-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: 56px;
             font-weight: 800;
             color: #202020;
             margin-bottom: 20px;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: -1.5px;
             animation: fadeInUp 0.8s ease-out;
+            text-align: left;
         }
 
         .hero h1 .highlight {
@@ -128,14 +132,15 @@
         }
 
         .hero-subtitle {
-            font-size: 20px;
+            font-size: 18px;
             color: #6F5746;
             margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
             line-height: 1.6;
             animation: fadeInUp 0.8s ease-out 0.1s both;
+            text-align: left;
         }
 
         .cta-button {
@@ -158,6 +163,14 @@
             background: var(--light-brown);
             transform: translateY(-5px);
             box-shadow: 0 20px 60px rgba(111, 87, 70, 0.5);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.2);
+            animation: slideInRight 0.8s ease-out 0.2s both;
         }
 
         .about {
@@ -601,6 +614,8 @@
         @media (max-width: 768px) {
             nav { display: none; }
             .hero h1 { font-size: 40px; }
+            .hero-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-image { margin-top: 30px; }
             .section-title { font-size: 36px; }
             .final-cta h2 { font-size: 36px; }
         }
@@ -621,9 +636,12 @@
 
     <section class="hero">
         <div class="hero-container">
-            <h1>Разрушь свой финансовый потолок с <span class="highlight">Easy Peasy Systems</span></h1>
-            <p class="hero-subtitle">Экосистема, которая помогает замечать аномалии на рынке и зарабатывать стабильно через правильные решения и сильное окружение.</p>
-            <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-button">Присоединиться к Сообществу</a>
+            <div>
+                <h1>Разрушь свой финансовый потолок с <span class="highlight">Easy Peasy Systems</span></h1>
+                <p class="hero-subtitle">Экосистема, которая помогает замечать аномалии на рынке и зарабатывать стабильно через правильные решения и сильное окружение.</p>
+                <a href="https://t.me/m/AwidoA2nOWUy/" class="cta-button">Присоединиться к Сообществу</a>
+            </div>
+            <img src="./2026-06-18 16.20.24.jpg" alt="Easy Peasy Systems" class="hero-image">
         </div>
     </section>
 
