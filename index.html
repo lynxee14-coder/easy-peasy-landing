@@ -84,36 +84,57 @@
 
         .hero {
             background: linear-gradient(135deg, #FFFAF4 0%, #F7F0EA 100%);
-            padding: 80px 20px;
+            padding: 80px 40px;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 50%;
-            right: -20%;
+            top: 20%;
+            right: -5%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(111, 87, 70, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(111, 87, 70, 0.12) 0%, transparent 70%);
             border-radius: 50%;
-            animation: pulse 6s infinite;
+            animation: pulse 8s infinite;
+            z-index: 0;
         }
 
         .hero-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hero-accent {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .accent-bar {
+            width: 6px;
+            height: 80px;
+            background: var(--primary-brown);
+            border-radius: 3px;
         }
 
         .hero h1 {
@@ -148,21 +169,22 @@
             background: var(--primary-brown);
             color: #FFFFFF;
             padding: 18px 50px;
-            font-size: 16px;
+            font-size: 18px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-weight: 700;
-            box-shadow: 0 10px 40px rgba(111, 87, 70, 0.35);
+            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.3);
             animation: fadeInUp 0.8s ease-out 0.2s both;
+            max-width: fit-content;
         }
 
         .cta-button:hover {
             background: var(--light-brown);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(111, 87, 70, 0.4);
         }
 
         .hero-image {
@@ -233,33 +255,34 @@
 
         .stat-card {
             text-align: center;
-            padding: 40px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid rgba(111, 87, 70, 0.15);
-            transition: all 0.3s;
+            padding: 40px 30px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 2px solid rgba(111, 87, 70, 0.1);
+            transition: all 0.3s ease;
             animation: fadeInUp 0.6s ease-out;
+            box-shadow: 0 4px 15px rgba(111, 87, 70, 0.08);
         }
 
         .stat-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(111, 87, 70, 0.4);
-            box-shadow: 0 20px 50px rgba(111, 87, 70, 0.15);
+            transform: translateY(-10px);
+            border-color: var(--primary-brown);
+            box-shadow: 0 16px 40px rgba(111, 87, 70, 0.15);
         }
 
         .stat-number {
-            font-size: 42px;
+            font-size: 52px;
             font-weight: 800;
             color: var(--primary-brown);
             margin-bottom: 12px;
+            letter-spacing: -1px;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 15px;
             color: #6F5746;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.5;
         }
 
         .video-section {
@@ -329,23 +352,31 @@
 
         .benefits-list {
             margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
         }
 
         .benefit-module {
             background: var(--card-bg);
-            margin-bottom: 20px;
-            border-radius: 12px;
+            margin-bottom: 0;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(111, 87, 70, 0.08);
             animation: fadeInUp 0.6s ease-out;
-            border-left: 5px solid var(--primary-brown);
-            transition: all 0.3s;
+            border: 2px solid rgba(111, 87, 70, 0.12);
+            transition: all 0.3s ease;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            gap: 15px;
         }
 
         .benefit-module:hover {
-            box-shadow: 0 10px 40px rgba(111, 87, 70, 0.15);
-            border-left-color: var(--light-brown);
+            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.15);
+            border-color: rgba(111, 87, 70, 0.3);
+            transform: translateY(-4px);
         }
 
         .benefit-header {
@@ -426,21 +457,22 @@
         .faq-item {
             background: var(--card-bg);
             margin-bottom: 20px;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(111, 87, 70, 0.08);
             animation: fadeInUp 0.6s ease-out;
-            border-left: 4px solid var(--primary-brown);
-            transition: all 0.3s;
+            border: 2px solid rgba(111, 87, 70, 0.12);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .faq-item:hover {
-            box-shadow: 0 10px 40px rgba(111, 87, 70, 0.15);
+            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.15);
+            border-color: rgba(111, 87, 70, 0.3);
         }
 
         .faq-item.active {
-            box-shadow: 0 10px 40px rgba(111, 87, 70, 0.2);
+            box-shadow: 0 12px 40px rgba(111, 87, 70, 0.2);
         }
 
         .faq-question {
@@ -451,10 +483,10 @@
             background: transparent;
             border: none;
             width: 100%;
-            font-size: 16px;
+            font-size: 18px;
             color: #202020;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             gap: 20px;
         }
 
@@ -540,18 +572,19 @@
         }
 
         .final-cta h2 {
-            font-size: 52px;
+            font-size: 56px;
             margin-bottom: 25px;
             font-weight: 800;
             letter-spacing: -1px;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .final-cta p {
             font-size: 20px;
             margin-bottom: 45px;
-            opacity: 0.98;
+            opacity: 0.95;
             line-height: 1.6;
+            max-width: 700px;
         }
 
         .cta-button-white {
@@ -618,6 +651,9 @@
             .hero-image { margin-top: 30px; }
             .section-title { font-size: 36px; }
             .final-cta h2 { font-size: 36px; }
+            .benefits-list { grid-template-columns: 1fr; }
+            .stat-card { padding: 30px 20px; }
+            .stat-number { font-size: 40px; }
         }
     </style>
 </head>
